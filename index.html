@@ -539,39 +539,48 @@
             color: var(--white);
         }
         
-        /* Testimonials Section */
+         /* Updated Testimonials Section */
         .testimonials {
             background-color: var(--white);
         }
         
         .testimonials-container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
         }
         
-        .testimonial-slider {
-            position: relative;
-            overflow: hidden;
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
         }
         
-        .testimonial-slide {
-            padding: 2rem;
-            text-align: center;
-            display: none;
-            animation: fadeIn 0.5s ease;
+        .testimonial-card {
+            background-color: var(--light);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
         }
         
-        .testimonial-slide.active {
-            display: block;
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
         }
         
         .testimonial-img {
-            width: 100px;
-            height: 100px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            margin: 0 auto 1.5rem;
             overflow: hidden;
-            border: 5px solid var(--light);
+            margin-right: 1rem;
+            border: 3px solid var(--primary);
         }
         
         .testimonial-img img {
@@ -580,44 +589,42 @@
             object-fit: cover;
         }
         
-        .testimonial-text {
-            font-size: 1.1rem;
-            font-style: italic;
-            color: var(--dark);
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
-        
-        .testimonial-text::before,
-        .testimonial-text::after {
-            content: '"';
-            font-size: 2rem;
-            color: var(--primary);
-            opacity: 0.5;
-        }
-        
-        .testimonial-text::before {
-            margin-right: 0.5rem;
-        }
-        
-        .testimonial-text::after {
-            margin-left: 0.5rem;
-        }
-        
         .testimonial-author {
-            font-weight: 600;
+            flex: 1;
+        }
+        
+        .testimonial-author h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
             color: var(--secondary);
-            margin-bottom: 0.5rem;
         }
         
         .testimonial-role {
+            font-size: 0.8rem;
             color: var(--gray);
-            font-size: 0.9rem;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 1rem;
+        }
+        
+        .testimonial-text::before {
+            content: '"';
+            font-size: 2rem;
+            color: var(--primary);
+            opacity: 0.3;
+            position: absolute;
+            left: -0.5rem;
+            top: -1rem;
         }
         
         .testimonial-rating {
-            margin-top: 1rem;
             color: var(--warning);
+            font-size: 0.9rem;
         }
         
         .slider-controls {
@@ -1332,7 +1339,7 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
+   <!-- Testimonials Section -->
     <section class="section testimonials">
         <div class="container">
             <div class="section-title">
@@ -1341,16 +1348,19 @@
             </div>
             
             <div class="testimonials-container">
-                <div class="testimonial-slider">
-                    <div class="testimonial-slide active">
-                        <div class="testimonial-img">
-                            <img src="assets/client1.jpg" alt="Rajesh Mehta">
+                <div class="testimonials-grid">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-img">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Rajesh Mehta">
+                            </div>
+                            <div class="testimonial-author">
+                                <h4>Rajesh Mehta</h4>
+                                <p class="testimonial-role">Homeowner, Malabar Hill</p>
+                            </div>
                         </div>
-                        <div class="testimonial-text">
-                            <p>Chatrapati Builders transformed our vision into reality. Their attention to detail and commitment to quality is unmatched. Our new home is everything we dreamed of and more.</p>
-                        </div>
-                        <div class="testimonial-author">Rajesh Mehta</div>
-                        <div class="testimonial-role">Homeowner, Malabar Hill</div>
+                        <p class="testimonial-text">Chatrapati Builders transformed our vision into reality. Their attention to detail and commitment to quality is unmatched. Our new home is everything we dreamed of and more.</p>
                         <div class="testimonial-rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -1360,15 +1370,18 @@
                         </div>
                     </div>
                     
-                    <div class="testimonial-slide">
-                        <div class="testimonial-img">
-                            <img src="assets/client2.jpg" alt="Priya Shah">
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-img">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Priya Shah">
+                            </div>
+                            <div class="testimonial-author">
+                                <h4>Priya Shah</h4>
+                                <p class="testimonial-role">CEO, TechSolutions</p>
+                            </div>
                         </div>
-                        <div class="testimonial-text">
-                            <p>We hired Chatrapati for our office renovation and were impressed with their professionalism. They completed the project ahead of schedule and within budget. Highly recommended!</p>
-                        </div>
-                        <div class="testimonial-author">Priya Shah</div>
-                        <div class="testimonial-role">CEO, TechSolutions</div>
+                        <p class="testimonial-text">We hired Chatrapati for our office renovation and were impressed with their professionalism. They completed the project ahead of schedule and within budget.</p>
                         <div class="testimonial-rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -1378,15 +1391,18 @@
                         </div>
                     </div>
                     
-                    <div class="testimonial-slide">
-                        <div class="testimonial-img">
-                            <img src="assets/client3.jpg" alt="Amit Patel">
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-img">
+                                <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Amit Patel">
+                            </div>
+                            <div class="testimonial-author">
+                                <h4>Amit Patel</h4>
+                                <p class="testimonial-role">Real Estate Developer</p>
+                            </div>
                         </div>
-                        <div class="testimonial-text">
-                            <p>As a real estate developer, I've worked with many construction firms. Chatrapati stands out for their reliability, transparency, and quality workmanship. They're now my go-to builders.</p>
-                        </div>
-                        <div class="testimonial-author">Amit Patel</div>
-                        <div class="testimonial-role">Real Estate Developer</div>
+                        <p class="testimonial-text">As a developer, I've worked with many construction firms. Chatrapati stands out for their reliability, transparency, and quality workmanship.</p>
                         <div class="testimonial-rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -1395,12 +1411,153 @@
                             <i class="fas fa-star-half-alt"></i>
                         </div>
                     </div>
-                </div>
-                
-                <div class="slider-controls">
-                    <div class="slider-dot active" data-slide="0"></div>
-                    <div class="slider-dot" data-slide="1"></div>
-                    <div class="slider-dot" data-slide="2"></div>
+                    
+                    <!-- Testimonial 4 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-img">
+                                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Neha Kapoor">
+                            </div>
+                            <div class="testimonial-author">
+                                <h4>Neha Kapoor</h4>
+                                <p class="testimonial-role">Interior Designer</p>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">Collaborating with Chatrapati on several projects has been a pleasure. Their craftsmanship perfectly complements our design vision every time.</p>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 5 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-img">
+                                <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="Rahul Verma">
+                            </div>
+                            <div class="testimonial-author">
+                                <h4>Rahul Verma</h4>
+                                <p class="testimonial-role">Restaurant Owner</p>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">They transformed our outdated space into a modern, functional restaurant. The team was respectful of our budget and timeline constraints.</p>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 6 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-img">
+                                <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Sunita Reddy">
+                            </div>
+                            <div class="testimonial-author">
+                                <h4>Sunita Reddy</h4>
+                                <p class="testimonial-role">Homeowner, Pune</p>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">Our home renovation exceeded expectations. The project manager kept us informed at every stage, and the workers were courteous and skilled.</p>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 7 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-img">
+                                <img src="https://randomuser.me/api/portraits/men/28.jpg" alt="Vikram Joshi">
+                            </div>
+                            <div class="testimonial-author">
+                                <h4>Vikram Joshi</h4>
+                                <p class="testimonial-role">Commercial Property Owner</p>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">Chatrapati handled our complex office building project with expertise. They solved unexpected challenges professionally and kept the project on track.</p>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 8 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-img">
+                                <img src="https://randomuser.me/api/portraits/women/52.jpg" alt="Ananya Deshpande">
+                            </div>
+                            <div class="testimonial-author">
+                                <h4>Ananya Deshpande</h4>
+                                <p class="testimonial-role">Boutique Hotel Owner</p>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">The interior design and construction team worked magic on our heritage property. They preserved the character while adding modern comforts.</p>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 9 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-img">
+                                <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Arjun Malhotra">
+                            </div>
+                            <div class="testimonial-author">
+                                <h4>Arjun Malhotra</h4>
+                                <p class="testimonial-role">IT Company Director</p>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">Our new office space has boosted employee morale and productivity. Chatrapati understood our tech company's needs and delivered perfectly.</p>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 10 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-img">
+                                <img src="https://randomuser.me/api/portraits/women/29.jpg" alt="Meera Iyer">
+                            </div>
+                            <div class="testimonial-author">
+                                <h4>Meera Iyer</h4>
+                                <p class="testimonial-role">Retail Store Owner</p>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">The store renovation was completed with minimal disruption to our business. The team worked efficiently and cleaned up thoroughly each day.</p>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
